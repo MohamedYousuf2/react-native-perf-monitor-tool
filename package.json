@@ -1,0 +1,36 @@
+{
+  "name": "react-native-perf-monitor",
+  "version": "1.0.0",
+  "description": "Lightweight in-app performance debugger for React Native",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./lib/index.js",
+      "import": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "keywords": [
+    "react-native",
+    "performance",
+    "debugging",
+    "developer-tools",
+    "overlay"
+  ],
+  "author": "Mohamed Yousuf",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=17",
+    "react-native": ">=0.68"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.2",
+    "@types/react-native": "^0.73.0",
+    "typescript": "^5.8.3"
+  }
+}
