@@ -103,6 +103,89 @@ The overlay will show exactly which prop changed and caused the re-render.
 
 ---
 
+## Network Monitor Setup
+
+The network monitor works automatically for `fetch` requests.  
+If your project uses **axios**, follow the setup below based on your case.
+
+> **Why is this needed?**  
+> axios creates its own internal HTTP instance that is separate from the global `fetch`.  
+> To monitor axios requests, you need to tell the library which instance to watch.  
+> This is a one-time setup — add it once in `App.tsx` and forget about it.
+
+---
+
+### Case 1 — You use `fetch` (default)
+
+No setup needed. Works automatically out of the box. ✅
+```tsx
+const response = await fetch('https://api.example.com/users');
+```
+
+---
+
+### Case 2 — You use the default `axios` instance
+
+Add this once in your `App.tsx` before rendering anything:
+```tsx
+import axios from 'axios';
+import { setupAxiosInterceptor } from 'react-native-perf-monitor-tool';
+
+// Add this before your App component
+if (__DEV__) {
+  setupAxiosInterceptor(axios);
+}
+
+export default function App() {
+  return (
+    <View style={{ flex: 1 }}>
+      <YourApp />
+      <PerformanceOverlay position="bottom-right" />
+    </View>
+  );
+}
+```
+
+---
+
+### Case 3 — You use a custom axios instance
+
+This is the most common case in production apps.  
+Find your axios instance file (usually named `apiClient.ts` or `httpClient.ts`) and add this inside your constructor or setup function:
+```tsx
+import { setupAxiosInterceptor } from 'react-native-perf-monitor-tool';
+
+class ApiClient {
+  constructor() {
+    this.axiosInstance = axios.create({ baseURL: '...' });
+    this.setupInterceptors();
+
+    // Add perf monitor — safe in dev only, no effect in production
+    if (__DEV__) {
+      try {
+        setupAxiosInterceptor(this.axiosInstance);
+      } catch {
+        // library not installed — skip
+      }
+    }
+  }
+}
+```
+
+---
+
+### What gets monitored in the Network tab?
+
+Once set up, every request will appear in the **Network tab** of the overlay:
+```
+● GET    120ms   /api/users        🟢
+● POST   890ms   /api/orders       🟡  slow
+● GET    —       /api/products     ⚪  pending
+● DELETE 230ms   /api/item/5       🔴  HTTP 404
+```
+
+---
+
 ## Color Reference
 
 ### Components
