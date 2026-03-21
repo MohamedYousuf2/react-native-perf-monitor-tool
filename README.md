@@ -1,11 +1,9 @@
-# react-native-perf-monitor
+# react-native-perf-monitor-tool
 
-![npm version](https://img.shields.io/npm/v/react-native-perf-monitor)
+![npm version](https://img.shields.io/npm/v/react-native-perf-monitor-tool)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20Android-blue)
 ![Expo Go](https://img.shields.io/badge/Expo%20Go-compatible-brightgreen)
-
-
 
 A lightweight, in-app performance debugger for React Native.  
 No Flipper. No cables. No complex setup. Just add two lines and start debugging.
@@ -17,7 +15,7 @@ No Flipper. No cables. No complex setup. Just add two lines and start debugging.
 When your React Native app feels slow, finding the cause is hard.  
 Most tools require a desktop connection, complex setup, or don't work on real devices.
 
-**react-native-perf-monitor** runs entirely inside your app — a floating overlay that shows you exactly what's happening in real time:
+**react-native-perf-monitor-tool** runs entirely inside your app — a floating overlay that shows you exactly what's happening in real time:
 
 - Which components are re-rendering too much and why
 - When the JavaScript thread is blocked
@@ -30,7 +28,7 @@ No setup. No cables. Works on real devices. Works with Expo Go.
 
 ## Why Not Flipper or React DevTools?
 
-| | react-native-perf-monitor | React DevTools | Flipper |
+| | react-native-perf-monitor-tool | React DevTools | Flipper |
 |---|:---:|:---:|:---:|
 | Works inside the app | ✅ | ❌ | ❌ |
 | Works on real devices | ✅ | ⚠️ limited | ✅ |
@@ -69,7 +67,7 @@ yarn add react-native-perf-monitor-tool
 
 ### 1. Add the overlay once in your root component
 ```tsx
-import { PerformanceOverlay } from 'react-native-perf-monitor';
+import { PerformanceOverlay } from 'react-native-perf-monitor-tool';
 
 export default function App() {
   return (
@@ -83,7 +81,7 @@ export default function App() {
 
 ### 2. Track any component
 ```tsx
-import { useRenderMonitor } from 'react-native-perf-monitor';
+import { useRenderMonitor } from 'react-native-perf-monitor-tool';
 
 function HomeScreen() {
   useRenderMonitor('HomeScreen');
@@ -93,6 +91,8 @@ function HomeScreen() {
 
 ### 3. Track props changes
 ```tsx
+import { useRenderMonitor } from 'react-native-perf-monitor-tool';
+
 function UserCard({ user, theme }) {
   useRenderMonitor('UserCard', { user, theme });
   return <View>...</View>;
