@@ -184,4 +184,4 @@ MIT © 2026 Mohamed Yousuf — see [LICENSE](./LICENSE) for details.
 
 ## Author
 
-Made by [@MohamedYousuf98](https://github.com/MohamedYousuf98)
+Made by [@MohamedYousuf2](https://github.com/MohamedYousuf2)
