@@ -56,7 +56,11 @@ No setup. No cables. Works on real devices. Works with Expo Go.
 
 ## Install
 ```bash
-npm install react-native-perf-monitor
+# npm
+npm install react-native-perf-monitor-tool
+
+# yarn
+yarn add react-native-perf-monitor-tool
 ```
 
 ---
