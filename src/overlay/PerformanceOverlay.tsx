@@ -11,6 +11,7 @@ import {
 import { performanceStore } from '../store/performanceStore';
 import { startLagDetection, startFpsDetection } from '../utils/threadLagDetector';
 import { startNetworkMonitor, clearNetworkRequests, NetworkRequest } from '../utils/networkMonitor';
+import { setupAxiosInterceptor } from '../utils/axiosInterceptor';
 
 type Props = {
   enabled?: boolean;
@@ -42,9 +43,30 @@ export function PerformanceOverlay({
       performanceStore.setFps(fps);
     });
 
-    const stopNetworkMonitor = startNetworkMonitor((requests) => {
-      performanceStore.setNetworkRequests(requests);
-    });
+ const stopNetworkMonitor = startNetworkMonitor((requests) => {
+  performanceStore.setNetworkRequests(requests);
+});
+
+try {
+  const axios = require('axios');
+  const axiosInstance = axios.default ?? axios;
+  if (axiosInstance?.interceptors) {
+    setupAxiosInterceptor(axiosInstance);
+  }
+} catch {
+  // axios not installed — skip
+}
+
+  // Auto-detect axios
+  try {
+    const axios = require('axios');
+    if (axios?.default?.interceptors || axios?.interceptors) {
+      const axiosInstance = axios.default ?? axios;
+      setupAxiosInterceptor(axiosInstance);
+    }
+  } catch {
+    // axios not installed — skip
+  }
 
     return () => {
       unsubscribe();
