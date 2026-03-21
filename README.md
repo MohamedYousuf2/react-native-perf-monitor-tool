@@ -31,7 +31,7 @@ No setup. No cables. Works on real devices. Works with Expo Go.
 ## Why Not Flipper or React DevTools?
 
 | | react-native-perf-monitor | React DevTools | Flipper |
-|---|---|---|---|
+|---|:---:|:---:|:---:|
 | Works inside the app | ✅ | ❌ | ❌ |
 | Works on real devices | ✅ | ⚠️ limited | ✅ |
 | Works with Expo Go | ✅ | ❌ | ❌ |
@@ -131,7 +131,7 @@ The overlay will show exactly which prop changed and caused the re-render.
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+|:---|:---:|:---:|:---|
 | `enabled` | boolean | `__DEV__` | Show only in development |
 | `position` | string | `'bottom-right'` | Overlay position on screen |
 
