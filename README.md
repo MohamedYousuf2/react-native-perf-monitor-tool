@@ -99,42 +99,6 @@ The overlay will show exactly which prop changed and caused the re-render.
 
 ---
 
-## Example Output
-```
-┌─────────────────────────────┐
-│ ● Perf Monitor    60 FPS   │
-├─────────────────────────────┤
-│ Performance  │  Network     │
-├─────────────────────────────┤
-│ ● JS Lag              —    │
-├─────────────────────────────┤
-│ COMPONENTS                  │
-│ ● HomeScreen         2x    │
-│   ↳ mount                  │
-│ ● UserCard          25x 🔴 │
-│   ↳ props.user changed     │
-│ ● FeedList          12x 🟡 │
-│   ↳ state changed          │
-├─────────────────────────────┤
-│          ↺ Reset            │
-└─────────────────────────────┘
-```
-```
-┌─────────────────────────────┐
-│ ● Perf Monitor    58 FPS   │
-├─────────────────────────────┤
-│ Performance  │  Network (3) │
-├─────────────────────────────┤
-│ ● GET   120ms  /api/user   │
-│ ● GET   890ms  /api/feed 🟡│
-│ ● POST  230ms  /api/like   │
-├─────────────────────────────┤
-│          ↺ Reset            │
-└─────────────────────────────┘
-```
-
----
-
 ## Color Reference
 
 ### Components
