@@ -22,6 +22,12 @@ Most tools require a desktop connection, complex setup, or don't work on real de
 - How fast your app is running (FPS)
 - Which API calls are slow or failing
 
+**Built for developers who:**
+- Work on real devices without a desktop connection
+- Use Expo Go and can't use Flipper or React DevTools
+- Need to monitor API calls directly on the device
+- Want to share debug info by simply handing the device to a colleague or client
+
 No setup. No cables. Works on real devices. Works with Expo Go.
 
 ---
@@ -42,13 +48,23 @@ No setup. No cables. Works on real devices. Works with Expo Go.
 
 ## Features
 
-- 🔁 **Re-render Counter** — tracks how many times each component re-renders
-- 🔍 **Re-render Reason** — shows why a component re-rendered (mount / state changed / props changed)
-- 📊 **FPS Monitor** — displays frames per second in real time
-- ⚡ **JS Lag Detector** — detects when the JavaScript thread is blocked
-- 🌐 **Network Monitor** — intercepts all fetch requests with method, duration, and status
-- 🎨 **Color Indicators** — green / yellow / red for instant visual feedback
-- 🙈 **Auto-hide in Production** — only shows in `__DEV__` mode by default
+- 🔁 **Re-render Counter & Tracking** — tracks exactly how many times each component re-renders to identify unnecessary updates
+- 🔍 **Re-render Reasons** — get instant visibility into why a re-render happened (mount / state changed / specific prop changed)
+- 📊 **Real-time FPS Monitor** — monitor UI performance by displaying frames per second directly in the overlay
+- ⚡ **JS Lag Detector** — automatically detects when the JavaScript thread is blocked (>50ms) to catch UI jank before users do
+- 🌐 **Network & Axios Monitor** — intercepts and inspects all fetch and axios requests, including method, status codes, and response duration
+- 🎨 **Visual Performance Indicators** — color-coded indicators (green / yellow / red) give an instant impression of your app's performance state
+- 🙈 **Production Safe** — no extra configuration needed; the library automatically hides in production builds using the `__DEV__` flag
+
+---
+
+## Compatibility
+
+- **Expo:** Works with Expo Go (SDK 50+) and Expo Dev Build
+- **React Native CLI:** Full support for bare React Native projects
+- **Architecture:** Works with both New Architecture and Old Architecture — no native modules used
+- **Platforms:** Tested on iOS and Android (real devices and simulators)
+- **Networking:** Supports both Fetch API and Axios
 
 ---
 
