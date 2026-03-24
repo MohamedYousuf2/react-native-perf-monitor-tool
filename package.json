@@ -1,6 +1,6 @@
 {
   "name": "react-native-perf-monitor-tool",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Lightweight in-app performance debugger for React Native — Monitor Re-renders, FPS, JS Lag & Network",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
