@@ -1,7 +1,7 @@
 # react-native-perf-monitor-tool
 
-![npm version](https://img.shields.io/npm/v/react-native-perf-monitor-tool)
-![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+[![npm version](https://img.shields.io/npm/v/react-native-perf-monitor-tool)](https://www.npmjs.com/package/react-native-perf-monitor-tool)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 ![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20Android-blue)
 ![Expo Go](https://img.shields.io/badge/Expo%20Go-compatible-brightgreen)
 
