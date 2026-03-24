@@ -266,12 +266,18 @@ Contributions are very welcome. Here are some great ways to help:
 
 ---
 
-## License
+---
 
-MIT © 2026 Mohamed Yousuf — see [LICENSE](./LICENSE) for details.
+## ✍️ Created By
+
+Built with ❤️ by **Mohamed Yousuf**
+
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MohamedYousuf2)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohamed-yousuf-607350287)
+[![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/share/1AnJKFqdxR/?mibextid=wwXIfr)
 
 ---
 
-## Author
+## 📄 License
 
-Made by [@MohamedYousuf2](https://github.com/MohamedYousuf2)
+MIT © 2026 Mohamed Yousuf — see [LICENSE](./LICENSE) for details.
