@@ -1,29 +1,48 @@
 {
   "name": "react-native-perf-monitor-tool",
   "version": "1.0.4",
-  "description": "Lightweight in-app performance debugger for React Native",
+  "description": "Lightweight in-app performance debugger for React Native — Monitor Re-renders, FPS, JS Lag & Network",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "exports": {
     ".": {
-      "require": "./lib/index.js",
+      "types": "./lib/index.d.ts",
       "import": "./lib/index.js",
-      "types": "./lib/index.d.ts"
+      "require": "./lib/index.js"
     }
   },
+  "files": [
+    "lib",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "prepare": "npm run build"
   },
   "keywords": [
     "react-native",
     "performance",
     "debugging",
     "developer-tools",
+    "expo",
+    "re-render",
+    "fps",
+    "network-monitor",
+    "jank-detector",
     "overlay"
   ],
   "author": "Mohamed Yousuf",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohamedYousuf2/react-native-perf-monitor-tool.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MohamedYousuf2/react-native-perf-monitor-tool/issues"
+  },
+  "homepage": "https://github.com/MohamedYousuf2/react-native-perf-monitor-tool#readme",
   "peerDependencies": {
     "react": ">=17",
     "react-native": ">=0.68"

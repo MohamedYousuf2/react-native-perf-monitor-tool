@@ -5,30 +5,30 @@
 ![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20Android-blue)
 ![Expo Go](https://img.shields.io/badge/Expo%20Go-compatible-brightgreen)
 
-A lightweight, in-app performance debugger for React Native.  
+A lightweight in-app performance debugging library for React Native.  
 No Flipper. No cables. No complex setup. Just add two lines and start debugging.
 
 ---
 
-## What This Library Does
+## 🚀 Why this library?
 
-When your React Native app feels slow, finding the cause is hard.  
-Most tools require a desktop connection, complex setup, or don't work on real devices.
+When your React Native app feels slow, finding the cause is hard. Traditional debugging tools often require a desktop connection, complex setups, or simply don't work on real devices.
 
-**react-native-perf-monitor-tool** runs entirely inside your app — a floating overlay that shows you exactly what's happening in real time:
+**react-native-perf-monitor-tool** runs entirely inside your app as a floating overlay, giving you:
 
-- Which components are re-rendering too much and why
-- When the JavaScript thread is blocked
-- How fast your app is running (FPS)
-- Which API calls are slow or failing
+- **Real-time Metrics:** Monitor FPS and UI jank directly on your screen.
+- **Deep Insights:** See exactly which component re-rendered and the specific props/state that caused it.
+- **Network Clarity:** Inspect Fetch and Axios requests without the need for a proxy or cables.
+- **Hardware-First:** Built specifically for **Expo Go** and real-world testing environments.
 
-**Built for developers who:**
-- Work on real devices without a desktop connection
-- Use Expo Go and can't use Flipper or React DevTools
-- Need to monitor API calls directly on the device
-- Want to share debug info by simply handing the device to a colleague or client
+---
 
-No setup. No cables. Works on real devices. Works with Expo Go.
+## 🎯 Built for developers who need to:
+
+- **Debug on the go:** Monitor performance on real devices, not just simulators.
+- **Master Expo Go:** Get deep insights even when native debuggers are unavailable.
+- **Collaborate instantly:** Show teammates exactly where the lag is—no laptop required.
+- **Eliminate UI Jank:** Catch blocked JS threads and slow API calls during actual interaction.
 
 ---
 
@@ -48,13 +48,13 @@ No setup. No cables. Works on real devices. Works with Expo Go.
 
 ## Features
 
-- 🔁 **Re-render Counter & Tracking** — tracks exactly how many times each component re-renders to identify unnecessary updates
-- 🔍 **Re-render Reasons** — get instant visibility into why a re-render happened (mount / state changed / specific prop changed)
-- 📊 **Real-time FPS Monitor** — monitor UI performance by displaying frames per second directly in the overlay
-- ⚡ **JS Lag Detector** — automatically detects when the JavaScript thread is blocked (>50ms) to catch UI jank before users do
-- 🌐 **Network & Axios Monitor** — intercepts and inspects all fetch and axios requests, including method, status codes, and response duration
-- 🎨 **Visual Performance Indicators** — color-coded indicators (green / yellow / red) give an instant impression of your app's performance state
-- 🙈 **Production Safe** — no extra configuration needed; the library automatically hides in production builds using the `__DEV__` flag
+- **Re-render Counter & Tracking** — Monitor exactly how many times each component updates to identify unnecessary performance overhead.
+- **Deep Re-render Insights** — Get instant visibility into the specific cause of a re-render (mount, state change, or specific prop changes).
+- **Real-time FPS Monitor** — Track UI fluidness by displaying frames per second directly in the overlay.
+- **JS Lag Detector** — Automatically detects when the JavaScript thread is blocked (>50ms) to catch UI jank before users do.
+- **Network & Axios Monitor** — Intercept and inspect fetch and axios requests, including methods, status codes, and response duration.
+- **Visual Performance Indicators** — Color-coded signals (green / yellow / red) providing an instant health check of your app's state.
+- **Production Safe** — Zero manual config needed; the library automatically disables itself in production builds using the `__DEV__` flag.
 
 ---
 
@@ -89,6 +89,7 @@ export default function App() {
   return (
     <View style={{ flex: 1 }}>
       <YourApp />
+      {/* Only renders in __DEV__ mode by default */}
       <PerformanceOverlay position="bottom-right" />
     </View>
   );
@@ -156,6 +157,7 @@ export default function App() {
   return (
     <View style={{ flex: 1 }}>
       <YourApp />
+      {/* Only renders in __DEV__ mode by default */}
       <PerformanceOverlay position="bottom-right" />
     </View>
   );
@@ -204,30 +206,13 @@ Once set up, every request will appear in the **Network tab** of the overlay:
 
 ## Color Reference
 
-### Components
+| Category | 🟢 Green | 🟡 Yellow | 🔴 Red |
+| :--- | :--- | :--- | :--- |
+| **Components** | < 10 re-renders | 10 - 20 re-renders | > 20 re-renders |
+| **Network** | Success (< 500ms) | Slow (> 500ms) | Failed / Error |
+| **FPS** | 55+ FPS | 30 - 55 FPS | < 30 FPS |
 
-| Color | Meaning |
-|-------|---------|
-| 🟢 Green | Less than 10 re-renders |
-| 🟡 Yellow | Between 10 and 20 re-renders |
-| 🔴 Red | More than 20 re-renders |
-
-### Network
-
-| Color | Meaning |
-|-------|---------|
-| 🟢 Green | Success, under 500ms |
-| 🟡 Yellow | Success but slow (over 500ms) |
-| 🔴 Red | Failed or HTTP error |
-| ⚪ Gray | Pending request |
-
-### FPS
-
-| Color | Meaning |
-|-------|---------|
-| 🟢 Green | 55 FPS and above |
-| 🟡 Yellow | Between 30 and 55 FPS |
-| 🔴 Red | Below 30 FPS |
+*Note: ⚪ Gray represents a pending network request.*
 
 ---
 
@@ -248,6 +233,7 @@ Once set up, every request will appear in the **Network tab** of the overlay:
 
 ---
 
+
 ## Roadmap
 
 - [ ] Render Timeline
@@ -255,6 +241,7 @@ Once set up, every request will appear in the **Network tab** of the overlay:
 - [ ] Export performance report
 - [ ] Redux / Zustand state monitor
 - [ ] Flipper plugin integration
+- [ ] Memory usage
 
 ---
 
