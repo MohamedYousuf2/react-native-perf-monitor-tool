@@ -266,8 +266,6 @@ Contributions are very welcome. Here are some great ways to help:
 
 ---
 
----
-
 ## ✍️ Created By
 
 Built with ❤️ by **Mohamed Yousuf**
